@@ -23,6 +23,7 @@
     "expo-linear-gradient": "~11.4.0",
     "expo-location": "^14.3.0",
     "expo-status-bar": "~1.4.0",
+    "expo-updates": "~0.14.7",
     "express-fileupload": "^1.4.0",
     "install": "^0.13.0",
     "pusher-js": "^7.4.0",

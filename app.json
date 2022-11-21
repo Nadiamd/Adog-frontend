@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "adog",
+    "owner": "nadiamhd",
     "slug": "adog",
     "version": "1.0.0",
     "orientation": "portrait",
