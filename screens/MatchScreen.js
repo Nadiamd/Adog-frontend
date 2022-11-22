@@ -24,7 +24,7 @@ export default function MatchScreen({ navigation }) {
       />
       <TouchableOpacity
         onPress={() =>
-          navigation.navigate("TabNavigator", { screen: "MailBox" })
+          navigation.navigate("TabNavigator", { screen: "Messagerie" })
         }
       >
         <Image
