@@ -152,7 +152,7 @@ const ChatScreen = ({ navigation }) => {
           >
             <Text style={styles.messageText}>
               Bonjour {user.name} bienvenue sur Adog, nous éspérons que vous
-              réussirez à trouver votre bohneur dans le respect de chacun.{" "}
+              réussirez à trouver votre bonheur dans le respect de chacun.{" "}
             </Text>
           </View>
         </View>
