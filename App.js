@@ -1,13 +1,9 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-
-
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
-
 import user from "./reducers/user";
 
 import SwipesScreen from "./screens/SwipesScreen";
@@ -24,6 +20,7 @@ const store = configureStore({
 });
 
 const Stack = createNativeStackNavigator();
+
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
@@ -37,7 +34,7 @@ const TabNavigator = () => {
             iconName = "heart";
           } else if (route.name === "My Profile") {
             iconName = "paw";
-          } else if (route.name === "MailBox") {
+          } else if (route.name === "Messagerie") {
             iconName = "comments";
           }
           return <FontAwesome name={iconName} size={size} color={color} />;
@@ -49,7 +46,7 @@ const TabNavigator = () => {
     >
       <Tab.Screen name="My Profile" component={UserProfileScreen} />
       <Tab.Screen name="Swipes" component={SwipesScreen} />
-      <Tab.Screen name="MailBox" component={MessagerieScreen} />
+      <Tab.Screen name="Messagerie" component={MessagerieScreen} />
     </Tab.Navigator>
   );
 };
