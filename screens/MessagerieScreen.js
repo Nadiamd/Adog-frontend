@@ -38,7 +38,7 @@ export default function MessagerieScreen() {
     // si une conversation existe,
     listeDeConversations = // on injecte dans la "listeDesConversation" une scrallView avec à l'intérieur la liste des rooms (c'est .map que nous avons écrit précédement)
       (
-        <ScrollView contentContainerStyle={styles.messagerie}>
+        <ScrollView>
           {listeDesRooms}
         </ScrollView>
       );
@@ -78,12 +78,6 @@ const styles = StyleSheet.create({
     fontSize: "20%",
     fontWeight: "600",
     marginTop: "3%",
-  },
-  messagerie: {
-    display: "flex",
-    alignContent: "center",
-    alignItems: "center",
-    height: "75%",
   },
   messagerieVide: {
     display: "flex",
