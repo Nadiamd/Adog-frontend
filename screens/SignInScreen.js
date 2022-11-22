@@ -21,7 +21,7 @@ export default function SignInScreen({ navigation }) {
   const [messagealert, setMessagealert] = useState("");
 
   const handleConnection = () => {
-    fetch(`https://${IP_VARIABLE}/users/signin`, {
+    fetch(`${IP_VARIABLE}/users/signin`, {
       // requete fetch avec notre adresse IP personnelle sur la route POST signin
       method: "POST",
       headers: { "Content-Type": "application/json" },

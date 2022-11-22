@@ -62,7 +62,7 @@ const ChatScreen = ({ navigation }) => {
   });
 
   useEffect(() => { // iniutile voir fetch d'après ligne 72
-    fetch(`https://${IP_VARIABLE}/messages/sync/${idRoom}`)
+    fetch(`${IP_VARIABLE}/messages/sync/${idRoom}`)
       .then((response) => response.json())
       .then((data) => {
         setMessages(data.messages);
@@ -71,7 +71,7 @@ const ChatScreen = ({ navigation }) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      fetch(`https://${IP_VARIABLE}/messages/sync/${idRoom}`)
+      fetch(`${IP_VARIABLE}/messages/sync/${idRoom}`)
         .then((response) => response.json())
         .then((data) => {
           setMessages(data.messages);

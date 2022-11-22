@@ -39,7 +39,7 @@ export default function UserProfileScreen({ navigation }) {
   // permet de charger au lancement de la page les informations du profil garder en BDD
   useEffect(() => {
     // useEffect d'initialisation
-    fetch(`https://${IP_VARIABLE}/users/getuser/${user.token}`)
+    fetch(`${IP_VARIABLE}/users/getuser/${user.token}`)
       .then((response) => response.json())
       .then((data) => {
         setName(data.name);
@@ -72,7 +72,7 @@ export default function UserProfileScreen({ navigation }) {
       });
       
 
-      fetch(`http://${IP_VARIABLE}/users/upload`, {
+      fetch(`${IP_VARIABLE}/users/upload`, {
         method: "POST",
         body: formData,
       })
@@ -92,7 +92,7 @@ export default function UserProfileScreen({ navigation }) {
 
   // fonction qui permet de submit les informations pour les enregistrer en BDD
   const handleRegister = () => {
-    fetch(`https://${IP_VARIABLE}/users/update/${user.token}`, {
+    fetch(`${IP_VARIABLE}/users/update/${user.token}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

@@ -11,7 +11,7 @@ export default function MessagerieScreen() {
 
   useEffect(() => {
     // useEffect d'initialisation pour récupérer nos conversations : va consulter la route mes conversations via le token en paramètre
-    fetch(`https://${IP_VARIABLE}/messages/mesconversations/${user.token}`)
+    fetch(`${IP_VARIABLE}/messages/mesconversations/${user.token}`)
       .then((response) => response.json())
       .then((data) => {
         // en faisant un console.log de data on retrouve bien l'id de la room dans le data.rooms ( data est un tableau et rooms est une propriété du tableau)
