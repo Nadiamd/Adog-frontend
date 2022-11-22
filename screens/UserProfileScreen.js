@@ -44,12 +44,14 @@ export default function UserProfileScreen({ navigation }) {
       .then((data) => {
         setName(data.name);
         setBreed(data.breed);
-        setAge(data.age.toString());
         setGender(data.gender);
         setCity(data.city);
         setVaccins(data.vaccins);
         setAboutMe(data.aboutMe);
         setAboutMyOwner(data.aboutMyOwner);
+        if (data.age !== undefined) {
+          setAge(data.age.toString());
+        }
       });
   }, []);
 
