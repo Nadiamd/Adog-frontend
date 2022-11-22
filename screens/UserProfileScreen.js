@@ -70,7 +70,7 @@ export default function UserProfileScreen({ navigation }) {
         name: "photo.jpg",
         type: "image/jpeg",
       });
-      console.log(formData);
+      
 
       fetch(`http://${IP_VARIABLE}/users/upload`, {
         method: "POST",

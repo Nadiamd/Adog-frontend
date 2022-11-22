@@ -65,7 +65,6 @@ export default function SwipesScreen({ navigation }) {
 
   // on map sur cardsData ( notre etat initial qu'on a set) : le taleau cardsData contient toutes les data des users.
   const cards = cardsData.map((data, i) => {
-    //console.log("ici c'est cadsdata", cardsData)
     return (
       <View key={i}>
         <View>
@@ -133,19 +132,19 @@ export default function SwipesScreen({ navigation }) {
             },
           }}
           renderCard={(card) => {
-            // console.log("card:", card)
+            
             return <View style={styles.card}>{card}</View>;
           }}
           onSwiped={(cardIndex) => {
-            //console.log(cardIndex);
+            
           }}
           onSwipedRight={(event) => {
-            // console.log("tete", event);
+          
             handleRight(event);
           }}
           onSwipedLeft={() => onSwiped("left")}
           onSwipedAll={() => {
-            //console.log("onSwipedAll");
+            
           }}
           cardIndex={0}
           backgroundColor={"white"}

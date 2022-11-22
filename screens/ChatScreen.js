@@ -109,7 +109,7 @@ const ChatScreen = ({ navigation }) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        
         // setMessages((messages) => [...messages, data.newDoc]);
       });
     setMessageText("");
