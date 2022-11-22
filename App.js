@@ -1,17 +1,12 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-
 import { Provider } from "react-redux";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { persistStore, persistReducer } from "redux-persist";
-
 import user from "./reducers/user";
-
-
 import SwipesScreen from "./screens/SwipesScreen";
 import HomeScreen from "./screens/HomeScreen";
 import SignInScreen from "./screens/SignInScreen";
@@ -23,7 +18,7 @@ import ChatScreen from "./screens/ChatScreen";
 
 const reducers = combineReducers({ user });
 
-const persistConfig = { key: "applicationName", storage: AsyncStorage };
+const persistConfig = { key: "adog", storage: AsyncStorage };
 
 const store = configureStore({
   reducer: persistReducer(persistConfig, reducers),
@@ -47,7 +42,7 @@ const TabNavigator = () => {
             iconName = "heart";
           } else if (route.name === "My Profile") {
             iconName = "paw";
-          } else if (route.name === "MailBox") {
+          } else if (route.name === "Messagerie") {
             iconName = "comments";
           }
           return <FontAwesome name={iconName} size={size} color={color} />;
@@ -59,7 +54,7 @@ const TabNavigator = () => {
     >
       <Tab.Screen name="My Profile" component={UserProfileScreen} />
       <Tab.Screen name="Swipes" component={SwipesScreen} />
-      <Tab.Screen name="MailBox" component={MessagerieScreen} />
+      <Tab.Screen name="Messagerie" component={MessagerieScreen} />
     </Tab.Navigator>
   );
 };
