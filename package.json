@@ -28,7 +28,7 @@
     "install": "^0.13.0",
     "pusher-js": "^7.4.0",
     "react": "18.0.0",
-    "react-dom": "^18.2.0",
+    "react-dom": "18.0.0",
     "react-native": "0.69.6",
     "react-native-deck-swiper": "^2.0.11",
     "react-native-dropdown-select-list": "^1.0.23",
