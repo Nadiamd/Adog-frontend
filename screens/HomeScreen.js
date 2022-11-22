@@ -1,7 +1,23 @@
 import React from "react";
-import { Image, StyleSheet, SafeAreaView, Text, TouchableOpacity } from "react-native";
+import {
+  Image,
+  StyleSheet,
+  SafeAreaView,
+  Text,
+  TouchableOpacity,
+} from "react-native";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 export default function HomeScreen({ navigation }) {
+  const user = useSelector((state) => state.user.value.token);
+
+  useEffect(() => {
+    if (user) {
+      navigation.navigate("TabNavigator", { screen: "Swipes" });
+    }
+  }, []);
+
   const handleSubmit = () => {
     navigation.navigate("SignUp");
   };

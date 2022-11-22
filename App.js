@@ -1,10 +1,16 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
 import FontAwesome from "react-native-vector-icons/FontAwesome";
+
 import { Provider } from "react-redux";
-import { configureStore } from "@reduxjs/toolkit";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { persistStore, persistReducer } from "redux-persist";
+
 import user from "./reducers/user";
+
 
 import SwipesScreen from "./screens/SwipesScreen";
 import HomeScreen from "./screens/HomeScreen";
@@ -13,14 +19,21 @@ import SignUpScreen from "./screens/SignUpScreen";
 import MatchScreen from "./screens/MatchScreen";
 import UserProfileScreen from "./screens/UserProfileScreen";
 import MessagerieScreen from "./screens/MessagerieScreen";
-import ChatScreen from "./screens/ChatScreen"
+import ChatScreen from "./screens/ChatScreen";
+
+const reducers = combineReducers({ user });
+
+const persistConfig = { key: "applicationName", storage: AsyncStorage };
 
 const store = configureStore({
-  reducer: { user },
+  reducer: persistReducer(persistConfig, reducers),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({ serializableCheck: false }),
 });
 
-const Stack = createNativeStackNavigator();
+const persistor = persistStore(store);
 
+const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
@@ -34,7 +47,7 @@ const TabNavigator = () => {
             iconName = "heart";
           } else if (route.name === "My Profile") {
             iconName = "paw";
-          } else if (route.name === "Messagerie") {
+          } else if (route.name === "MailBox") {
             iconName = "comments";
           }
           return <FontAwesome name={iconName} size={size} color={color} />;
@@ -46,7 +59,7 @@ const TabNavigator = () => {
     >
       <Tab.Screen name="My Profile" component={UserProfileScreen} />
       <Tab.Screen name="Swipes" component={SwipesScreen} />
-      <Tab.Screen name="Messagerie" component={MessagerieScreen} />
+      <Tab.Screen name="MailBox" component={MessagerieScreen} />
     </Tab.Navigator>
   );
 };
