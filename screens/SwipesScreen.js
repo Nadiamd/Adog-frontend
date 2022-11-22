@@ -13,7 +13,6 @@ export default function SwipesScreen({ navigation }) {
   const user = useSelector((state) => state.user.value);
 
   const [cardsData, setCardsData] = useState([]); // initialisation de l'etat cardsData qui aura comme valeur initiale un tableau vide
-  console.log(cardsData);
   // Permet d'afficher les cards contenant les informations des users
   useEffect(() => {
     fetch(`https://${IP_VARIABLE}/users/allusers/${user.token}`) // on fetch sur notre base de données en backend pour récupérer les données des users qui figurent sur chaque card
@@ -134,7 +133,6 @@ export default function SwipesScreen({ navigation }) {
             },
           }}
           renderCard={(card) => {
-          
             // console.log("card:", card)
             return <View style={styles.card}>{card}</View>;
           }}
