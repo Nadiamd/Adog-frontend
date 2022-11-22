@@ -36,7 +36,7 @@ export default function SwipesScreen({ navigation }) {
 
   const handleRight = (event) => {
     // event permet de rentrer en contact avec l'object sur lequel on veut intervenir
-    fetch(`https://${IP_VARIABLE}/users/updatelike/${user.token}`, {
+    fetch(`${IP_VARIABLE}/users/updatelike/${user.token}`, {
       // on fetch sur le backend vers la route put pour mettre à jour les likes
       method: "PUT",
       headers: { "Content-Type": "application/json" },
